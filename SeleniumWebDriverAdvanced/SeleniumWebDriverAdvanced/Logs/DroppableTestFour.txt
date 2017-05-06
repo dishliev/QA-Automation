@@ -1,0 +1,1 @@
+SeleniumWebDriverAdvanced.AdvancedTests+DemoQATests.DroppableTestFour        C:\Users\DISHLIEV\Documents\Visual Studio 2013\Projects\SeleniumWebDriverAdvanced\SeleniumWebDriverAdvanced\bin\Debug            0
