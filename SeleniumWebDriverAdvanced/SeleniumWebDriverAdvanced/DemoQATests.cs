@@ -373,7 +373,7 @@ namespace SeleniumWebDriverAdvanced
                 var screenshot = ((ITakesScreenshot)this.driver).GetScreenshot();
                 screenshot.SaveAsFile(filename + TestContext.CurrentContext.Test.Name + ".jpg", ScreenshotImageFormat.Jpeg);
             }
-
+            driver.Quit();
         }
         
     }
