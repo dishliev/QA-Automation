@@ -76,6 +76,15 @@ namespace SeleniumWebDriverAdvanced.Pages.DraggablePage
             var drag = builder.ClickAndHold(BoxContainedInParent).MoveByOffset(0, 20);
             drag.Perform();
         }
+        
+          public void DragFirstBoxCursorStyle()
+        {
+            CursorStyle.Click();
+            var builder = new Actions(this.Driver);
+
+            var drag = builder.ClickAndHold(CursorStyleFirstBox).MoveByOffset(0, 20);
+            drag.Perform();
+        }
     }
 }
 
