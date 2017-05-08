@@ -68,6 +68,27 @@ namespace SeleniumWebDriverAdvanced.Pages.DraggablePage
                return this.Driver.FindElement(By.XPath("//*[@id=\"draggabl5\"]"));
            }
        }
+       public IWebElement CursorStyle
+       {
+           get
+           {
+               return this.Driver.FindElement(By.XPath("//*[@id=\"ui-id-3\"]"));
+           }
+       }
+       public IWebElement CursorStyleFirstBox
+       {
+           get
+           {
+               return this.Driver.FindElement(By.XPath("//*[@id=\"drag\"]"));
+           }
+       }
+        public IWebElement HtmlBody
+       {
+           get
+           {
+               return this.Driver.FindElement(By.XPath("/html/body"));
+           }
+       }
 
    }
 }
