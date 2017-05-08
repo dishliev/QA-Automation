@@ -1,7 +1,8 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SeleniumWebDriverAdvanced.Pages.DraggablePage;
 using SeleniumWebDriverAdvanced.Pages.DroppablePage;
 using SeleniumWebDriverAdvanced.Pages.ResizablePage;
 using SeleniumWebDriverAdvanced.Pages.SelectablePage;
@@ -29,9 +30,78 @@ namespace SeleniumWebDriverAdvanced
                 this.driver = new ChromeDriver();
             }
 
+            // DRAGGABLE TESTS
+            [Test, Property("Draggable", 3)]
+            [Author("Kiril Dishliev")]
+           
+            public void DraggableTestOne()
+            {
+                var draggablePage = new DraggablePage(driver);
+
+                draggablePage.NavigateTo();
+                draggablePage.DragFirstBox();
+                                                                          
+                draggablePage.AssertFirstTabSourceAttribute("ui-widget-content ui-draggable ui-draggable-handle ui-draggable-dragging");
+            }
+
+            [Test, Property("Draggable", 3)]
+            [Author("Kiril Dishliev")]
+          
+            public void DraggableTestTwo()
+            {
+                var draggablePage = new DraggablePage(driver);
+
+                draggablePage.NavigateTo();
+                draggablePage.DragVerticalFirstBox();
+
+                draggablePage.AssertFirstBoxLocation();
+            }
+
+            [Test, Property("Draggable", 3)]
+            [Author("Kiril Dishliev")]
+         
+            public void DraggableTestThree()
+            {
+                var draggablePage = new DraggablePage(driver);
+
+                draggablePage.NavigateTo();
+                draggablePage.DragHorizontalSecondBox();
+
+                draggablePage.AssertSecondBoxSourceAttribute("draggable ui-widget-content ui-draggable ui-draggable-handle ui-draggable-dragging");
+            }
+
+            [Test, Property("Draggable", 3)]
+            [Author("Kiril Dishliev")]
+            
+            public void DraggableTestFour()
+            {
+                var draggablePage = new DraggablePage(this.driver);
+
+                draggablePage.NavigateTo();
+                draggablePage.DragEventsBox();
+
+                draggablePage.AssertEventsBoxDragInvokeCount();
+                
+       
+            }
+
+            [Test, Property("Draggable", 3)]
+            [Author("Kiril Dishliev")]
+          
+            public void DraggableTestFive()
+            {
+                var draggablePage = new DraggablePage(this.driver);
+
+                draggablePage.NavigateTo();
+                draggablePage.DragBoxContainedInParent();
+
+                draggablePage.AssertBoxContainedInParentSourceAttribute("ui-widget-header ui-draggable ui-draggable-handle ui-draggable-dragging");
+            }
+
+    
             // DROPPABLE TESTS
-            [Test]
-            [Property("DragAndDrop", 3)]
+            [Test, Property("Droppable", 3)]
+            [Author("Kiril Dishliev")]
             public void DroppableTestOne()
             {
               
@@ -44,8 +114,8 @@ namespace SeleniumWebDriverAdvanced
 
             }
 
-            [Test]
-            [Property("DragAndDrop", 3)]
+            [Test, Property("Droppable", 3)]
+            [Author("Kiril Dishliev")]
             public void DroppableTestTwo()
             {
 
@@ -59,9 +129,9 @@ namespace SeleniumWebDriverAdvanced
 
             }
 
-            [Test]
-            [Property("DragAndDrop", 3)]
-            public void DroppableTestTree()
+            [Test, Property("Droppable", 3)]
+            [Author("Kiril Dishliev")]
+            public void DroppableTestThree()
             {
                
                 var droppablePage = new DroppablePage(this.driver);
@@ -73,8 +143,8 @@ namespace SeleniumWebDriverAdvanced
 
             }
 
-            [Test]
-            [Property("DragAndDrop", 3)]
+            [Test, Property("Droppable", 3)]
+            [Author("Kiril Dishliev")]
             public void DroppableTestFour()
             {
 
@@ -87,8 +157,8 @@ namespace SeleniumWebDriverAdvanced
                 droppablePage.AssertTargetAttributeValueSecondSmallRectangle("ui-widget-header ui-droppable ui-state-highlight");
 
             }
-            [Test]
-            [Property("DragAndDrop", 3)]
+            [Test, Property("Droppable", 3)]
+            [Author("Kiril Dishliev")]
             public void DroppableTestFive()
             {
 
@@ -103,8 +173,9 @@ namespace SeleniumWebDriverAdvanced
             }
 
            //SELECTABLE TESTS
-            [Test]
-            [Property("Selectable", 2)]
+            
+            [Test, Property("Selectable", 3)]
+            [Author("Kiril Dishliev")]
             public void SelectableTestOne()
             {
                 var selectablePage = new SelectablePage(this.driver);
@@ -114,8 +185,8 @@ namespace SeleniumWebDriverAdvanced
 
                 selectablePage.AssertTargetAttributeValueSelectableItem1("ui-widget-content ui-corner-left ui-selectee ui-selected");
             }
-            [Test]
-            [Property("Selectable", 2)]
+            [Test, Property("Selectable", 3)]
+            [Author("Kiril Dishliev")]
             public void SelectableTestTwo()
             {
                 var selectablePage = new SelectablePage(this.driver);
@@ -128,9 +199,9 @@ namespace SeleniumWebDriverAdvanced
                 selectablePage.AssertTargetAttributeValueSelectableItem3("ui-widget-content ui-corner-left ui-selectee ui-selected");
             }
 
-            [Test]
-            [Property("Selectable", 2)]
-            public void SelectableTestTree()
+            [Test, Property("Selectable", 3)]
+            [Author("Kiril Dishliev")]
+            public void SelectableTestThree()
             {
                 var selectablePage = new SelectablePage(this.driver);
 
@@ -142,8 +213,8 @@ namespace SeleniumWebDriverAdvanced
 
                
             }
-            [Test]
-            [Property("Selectable", 2)]
+            [Test, Property("Selectable", 3)]
+            [Author("Kiril Dishliev")]
             public void SelectableTestFour()
             {
                 var selectablePage = new SelectablePage(this.driver);
@@ -155,11 +226,12 @@ namespace SeleniumWebDriverAdvanced
 
 
             }
+            
             //SORTABLE TESTS
 
 
-           [Test]
-           [Property("ToolsQA", 3)]
+            [Test, Property("Sortable", 3)]
+            [Author("Kiril Dishliev")]
             public void SortableOne() 
            
            {
@@ -172,31 +244,27 @@ namespace SeleniumWebDriverAdvanced
 
            
            }
-           [Test]
-           [Property("ToolsQA", 3)]
+           [Test, Property("Sortable", 3)]
+           [Author("Kiril Dishliev")]
            public void SortableTwo()
            {
                var sortablePage = new SortablePage(this.driver);
 
                sortablePage.NavigateTo();
 
-
-
                sortablePage.SortableConnectList();
 
-               sortablePage.AssertSortablePageConnectList();
+               sortablePage.AssertSortablePageConnectList("Item 1");
 
 
            }
-           [Test]
-           [Property("ToolsQA", 3)]
-           public void SortableTree()
+           [Test, Property("Sortable", 3)]
+           [Author("Kiril Dishliev")]
+           public void SortableThree()
            {
                var sortablePage = new SortablePage(this.driver);
 
                sortablePage.NavigateTo();
-
-
 
                sortablePage.DisplayAsGrid1();
 
@@ -205,25 +273,43 @@ namespace SeleniumWebDriverAdvanced
 
            }
 
-
-
-
-
-
             // RESIZABLE TESTS
-
-
-            [Test]
-            [Property("ToolsQA", 3)]
-            public void ResizeFirstTry()
+            
+           [Test, Property("Resizable", 3)]
+           [Author("Kiril Dishliev")]
+            public void ResizeTestOne()
             {
              
                 var resizblePage = new ResizablePage(this.driver);
 
-                resizblePage.IncreaseWidthAndheightBy(100);
+                resizblePage.IncreaseWidthAndheightBy(200);
 
-                resizblePage.AssertNewSize(100, 100);
+                resizblePage.AssertNewSize();
             }
+
+            [Test, Property("Resizable", 3)]
+            [Author("Kiril Dishliev")]
+            public void ResizeTestTwo()
+            {
+
+                var resizblePage = new ResizablePage(this.driver);
+
+                resizblePage.IncreaseWidthAndHeightConstrain(100, 50);
+
+                resizblePage.AssertNewSizeConstrain();
+            }
+            [Test, Property("Resizable", 3)]
+            [Author("Kiril Dishliev")]
+            public void ResizeTestThree()
+            {
+
+                var resizblePage = new ResizablePage(this.driver);
+
+                resizblePage.IncreaseWidthAndHeightHelperBox(100, 100);
+
+                resizblePage.AssertNewSizeHelperBox();
+            }
+
 
             [TearDown]
             public void CleanUp()
@@ -241,6 +327,7 @@ namespace SeleniumWebDriverAdvanced
                     screenshot.SaveAsFile(filename + TestContext.CurrentContext.Test.Name + ".jpg", ScreenshotImageFormat.Jpeg);
                 }
 
+                driver.Quit();
             }
         }
     }
