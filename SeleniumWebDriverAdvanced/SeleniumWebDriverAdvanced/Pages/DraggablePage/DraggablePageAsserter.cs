@@ -18,6 +18,7 @@ namespace SeleniumWebDriverAdvanced.Pages.DraggablePage
         {
             Assert.AreNotSame(page.FirstBoxConaitMovement.Location, page.SecondBoxConstrainMovement.Location);
         }
+        
         public static void AssertSecondBoxSourceAttribute(this DraggablePage page, string text)
         {
             Assert.AreEqual(text, page.SecondBoxConstrainMovement.GetAttribute("class"));
@@ -27,9 +28,15 @@ namespace SeleniumWebDriverAdvanced.Pages.DraggablePage
         {
             Assert.IsTrue(page.DragInvokeCountText.Text != "0");
         }
+        
         public static void AssertBoxContainedInParentSourceAttribute(this DraggablePage page, string text)
         {
             Assert.AreEqual(text, page.BoxContainedInParent.GetAttribute("class"));
+        }
+        
+        public static void AssertFirstBoxCursorStyleAttribute(this DraggablePage page, string style)
+        {
+            Assert.AreEqual(style, page.HtmlBody.GetAttribute("style"));
         }
     }
 }
