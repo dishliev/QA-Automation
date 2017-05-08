@@ -371,8 +371,16 @@ namespace SeleniumWebDriverAdvanced
                 File.WriteAllText(filename, TestContext.CurrentContext.Test.FullName + "        " + TestContext.CurrentContext.WorkDirectory + "            " + TestContext.CurrentContext.Result.PassCount);
 
                 var screenshot = ((ITakesScreenshot)this.driver).GetScreenshot();
-                screenshot.SaveAsFile(filename + TestContext.CurrentContext.Test.Name + ".jpg", ScreenshotImageFormat.Jpeg);
+                var fileNameScreenshot = ConfigurationManager.AppSettings["Logs"] + TestContext.CurrentContext.Test.Name;
+
+                if (File.Exists(fileNameScreenshot))
+                {
+                    File.Delete(fileNameScreenshot);
+                }
+
+                screenshot.SaveAsFile(fileNameScreenshot + ".jpeg", ScreenshotImageFormat.Jpeg);
             }
+
             driver.Quit();
         }
         
