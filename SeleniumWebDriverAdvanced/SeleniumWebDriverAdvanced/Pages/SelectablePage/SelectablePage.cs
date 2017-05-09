@@ -55,7 +55,7 @@ namespace SeleniumWebDriverAdvanced.Pages.SelectablePage
               
            }
            public void SelectableSeriazile()
-           { // builder no work good
+           { 
                var builder = new Actions(this.Driver);
                Seriazile.Click();
 
